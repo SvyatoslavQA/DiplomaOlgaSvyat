@@ -19,21 +19,21 @@ public class ReadProperties {
         return properties.getProperty("url");
     }
     public static String getUrlApi() {
-        return properties.getProperty("url_api");
+        return properties.getProperty("urlApi");
     }
     public static String getToken() {
         return properties.getProperty("token");
     }
     public static String getTokenFalse() {
-        return properties.getProperty("token_false");
+        return properties.getProperty("tokenFalse");
     }
     public static String getTestmoAccount() {
-        return properties.getProperty("testmo_account");
+        return properties.getProperty("account");
     }
     public static String getTestmoLogin() {
-        return properties.getProperty("testmo_login");
+        return properties.getProperty("login");
     }
     public static String getTestmoPassword() {
-        return properties.getProperty("testmo_password");
+        return properties.getProperty("password");
     }
 }
