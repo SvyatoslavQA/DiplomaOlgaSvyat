@@ -27,13 +27,13 @@ public class ReadProperties {
     public static String getTokenFalse() {
         return properties.getProperty("tokenFalse");
     }
-    public static String getTestmoAccount() {
+    public static String getAccount() {
         return properties.getProperty("account");
     }
-    public static String getTestmoLogin() {
+    public static String getLogin() {
         return properties.getProperty("login");
     }
-    public static String getTestmoPassword() {
+    public static String getPassword() {
         return properties.getProperty("password");
     }
 }
