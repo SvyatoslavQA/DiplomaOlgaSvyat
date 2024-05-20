@@ -11,7 +11,7 @@ public class StartStep extends BaseStep {
 
     @Step("Open start page and click on login button")
     public TestmoLoginPage loginButtonClick() {
-        mStartPage.loginButtonClick();
-        return mTestmoLoginPage;
+        StartPage.loginButtonClick();
+        return LoginPage;
     }
 }
