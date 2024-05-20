@@ -8,15 +8,15 @@ public class AdminProjectStep extends BaseStep {
     }
 
     public void removeLastProjectFromTable() {
-        mAdminProjectPage.parseTable();
-        mAdminProjectPage.isDialogVisible();
-        mAdminProjectPage.removeProject();
+        AdminProjectPage.parseTable();
+        AdminProjectPage.isDialogVisible();
+        AdminProjectPage.removeProject();
     }
 
     public boolean removeWorkflowFromTable() {
-        int startRowSize = mAdminProjectPage.parseTable();
-        mAdminProjectPage.isDialogVisible();
-        int endRowSize = mAdminProjectPage.removeWorkflow();
+        int startRowSize = AdminProjectPage.parseTable();
+        AdminProjectPage.isDialogVisible();
+        int endRowSize = AdminProjectPage.removeWorkflow();
         return startRowSize > endRowSize;
     }
 }

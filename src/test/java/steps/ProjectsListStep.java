@@ -11,36 +11,36 @@ public class ProjectsListStep extends BaseStep {
     }
 
     public void openAddProjectDialogWindow() {
-        mProjectsListPage.addProjectButtonClick();
+        ProjectsListPage.addProjectButtonClick();
     }
 
     public String getAddProjectDialogTitleTextWindow() {
-        return mProjectsListPage.checkDialogWindowOpen();
+        return ProjectsListPage.checkDialogWindowOpen();
     }
 
     public String getAddProjectDialogPopUpText() {
-        return mProjectsListPage.checkPopUpOpen();
+        return ProjectsListPage.checkPopUpOpen();
     }
 
     public void uploadImage(String pathToFile) {
-        mProjectsListPage.uploadImage(pathToFile);
+        ProjectsListPage.uploadImage(pathToFile);
     }
 
     public boolean checkSuccessUpload() {
-        return mProjectsListPage.checkSuccessUpload();
+        return ProjectsListPage.checkSuccessUpload();
     }
 
     public ProjectDetailsPage createProject(Project mProject) {
-        mProjectsListPage.initProjectFields(mProject);
-        return mProjectDetailsPage;
+        ProjectsListPage.initProjectFields(mProject);
+        return ProjectDetailsPage;
     }
 
     public String createProject(int size) {
         if (size == 0)
-            return mProjectsListPage.initProjectNameFieldEmpty();
+            return ProjectsListPage.initProjectNameFieldEmpty();
         else if (size == 751)
-            return mProjectsListPage.initProjectNameFieldRangeNegative(size);
-        else return mProjectsListPage.initProjectNameFieldPositive(size);
+            return ProjectsListPage.initProjectNameFieldRangeNegative(size);
+        else return ProjectsListPage.initProjectNameFieldPositive(size);
     }
 }
 

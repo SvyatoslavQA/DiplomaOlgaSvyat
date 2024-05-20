@@ -10,10 +10,10 @@ public class TestmoLoginStep extends BaseStep {
     }
 
     public TestmoAuthPage setTestmoAccount( UserForUITest mUser) {
-        mTestmoLoginPage.loginAccountAreaClick();
-        mTestmoLoginPage.insertTestmoAccount(mUser.getTestmoAccount());
-        mTestmoLoginPage.goButtonClick();
-        return mTestmoAuthPage;
+        LoginPage.loginAccountAreaClick();
+        LoginPage.insertTestmoAccount(mUser.getTestmoAccount());
+        LoginPage.goButtonClick();
+        return AuthPage;
     }
 }
 
