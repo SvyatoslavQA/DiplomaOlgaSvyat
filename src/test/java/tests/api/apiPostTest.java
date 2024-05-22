@@ -1,5 +1,6 @@
 package tests.api;
 
+import io.qameta.allure.*;
 import baseEntities.BaseApiTest;
 import configuration.ReadProperties;
 import org.apache.http.HttpStatus;
@@ -10,7 +11,9 @@ import static io.restassured.RestAssured.given;
 
 public class apiPostTest extends BaseApiTest {
 
-    @Test(description = "Creates a new automation run in a target project")
+    @Test
+    @Description("Creates a new automation run in a target project")
+    @Severity(SeverityLevel.CRITICAL)
     public void createRunUsingFileTest() {
         int projectID = 29;
 
@@ -24,7 +27,9 @@ public class apiPostTest extends BaseApiTest {
                 .statusCode(HttpStatus.SC_CREATED);
     }
 
-    @Test(description = "Complete active automation run")
+    @Test
+    @Description("Complete active automation run")
+    @Severity(SeverityLevel.CRITICAL)
     public void completeRunUsingFileTest() {
 
         int runID = 25;

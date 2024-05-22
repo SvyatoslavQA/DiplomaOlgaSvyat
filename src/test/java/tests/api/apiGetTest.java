@@ -1,5 +1,6 @@
 package tests.api;
 
+import io.qameta.allure.*;
 import baseEntities.BaseApiTest;
 import com.google.gson.Gson;
 import io.restassured.response.Response;
@@ -13,39 +14,46 @@ import static io.restassured.RestAssured.given;
 
 public class apiGetTest extends BaseApiTest {
     @Test
+    @Description("Get current user info")
+    @Severity(SeverityLevel.MINOR)
     public void getUserTest() {
-        String endpoint = "/api/v1/user";
 
         given()
                 .when()
-                .get(endpoint)
+                .get(Endpoints.GET_CURRENT_USER)
                 .then().log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 
     @Test
-    public void getUsersTest() {
-        String endpoint = "/api/v1/users";
+    @Description("Get list all users")
+    @Severity(SeverityLevel.NORMAL)
+    public void getAllUsersTest() {
 
         given()
                 .when()
-                .get(endpoint)
+                .get(Endpoints.GET_ALL_USERS)
                 .then().log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 
     @Test
+    @Description("Get info about user by user id")
+    @Severity(SeverityLevel.NORMAL)
     public void getSecondUserTest() {
-        String endpoint = "/api/v1/users/2";
+        int userID = 2;
 
         given()
                 .when()
-                .get(endpoint)
+                .pathParam("userID", userID)
+                .get(Endpoints.GET_USER_BY_ID)
                 .then().log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 
     @Test
+    @Description("Get info about special user from list")
+    @Severity(SeverityLevel.CRITICAL)
     public void getAllUsersAsArray() {
         Gson gson = new Gson();
 

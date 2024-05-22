@@ -26,31 +26,4 @@ public class ReadProperties {
     public static String getToken() {
         return properties.getProperty("token");
     }
-
-    public static String getTokenFalse() {
-        return properties.getProperty("tokenFalse");
-    }
-
-    //   public static String getTestmoAccount() {
-    //      return properties.getProperty("account");
-    //}
-    public static String getTestmoLogin() {
-        return properties.getProperty("login");
-    }
-
-    public static String getTestmoPassword() {
-        return properties.getProperty("password");
-    }
-
-//    public static boolean isHeadless() {
-//        return properties.getProperty("headless").equalsIgnoreCase("true");
-//    }
-//
-//    public static int timeout() {
-//        return Integer.parseInt(properties.getProperty("timeout"));
-//    }
-//
-//    public static int pageLoadTimeout() {
-//        return Integer.parseInt(properties.getProperty("pageLoadTimeout"));
-//    }
 }
