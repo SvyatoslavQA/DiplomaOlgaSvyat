@@ -23,5 +23,5 @@ public class Run {
 
         @SerializedName(value = "is_completed")
         @JsonProperty("is_completed")
-        private boolean iScompleted;
+        private boolean isCompleted;
 }
