@@ -9,7 +9,7 @@ import utils.Endpoints;
 
 import static io.restassured.RestAssured.given;
 
-public class apiPostTest extends BaseApiTest {
+public class ApiPostTest extends BaseApiTest {
 
     @Test
     @Description("Creates a new automation run in a target project")

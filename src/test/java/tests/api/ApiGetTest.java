@@ -12,7 +12,7 @@ import utils.Endpoints;
 import static io.restassured.RestAssured.given;
 
 
-public class apiGetTest extends BaseApiTest {
+public class ApiGetTest extends BaseApiTest {
     @Test
     @Description("Get current user info")
     @Severity(SeverityLevel.MINOR)

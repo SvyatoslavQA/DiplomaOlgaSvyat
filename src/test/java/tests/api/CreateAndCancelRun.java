@@ -14,7 +14,7 @@ import utils.Endpoints;
 
 import static io.restassured.RestAssured.given;
 
-public class createAndCancelRun extends BaseApiTest {
+public class CreateAndCancelRun extends BaseApiTest {
 
     @Test(dataProvider = "projectNumber", dataProviderClass = StaticProvider.class)
     @Description("Creates a new automation run in a target project")
