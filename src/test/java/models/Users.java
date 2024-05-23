@@ -12,12 +12,9 @@ import lombok.*;
 @EqualsAndHashCode
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
-    private String name;
-
-    @EqualsAndHashCode.Exclude
+public class Users {
     private int id;
-
+    private String name;
     private String email;
     private int type;
 
@@ -28,4 +25,6 @@ public class User {
     @SerializedName(value = "role_id")
     @JsonProperty("role_id")
     private int roleId;
+
+    private User[] users;
 }
