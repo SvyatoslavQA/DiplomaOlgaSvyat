@@ -37,4 +37,4 @@ public class ReadProperties {
         return properties.getProperty("password");
     }
 }
->>>>>>> origin/develop
+
