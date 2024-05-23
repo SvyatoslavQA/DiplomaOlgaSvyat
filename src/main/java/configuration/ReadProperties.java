@@ -18,12 +18,23 @@ public class ReadProperties {
     public static String getUrl() {
         return properties.getProperty("url");
     }
-
     public static String getUrlApi() {
         return properties.getProperty("urlApi");
     }
-
     public static String getToken() {
         return properties.getProperty("token");
     }
+    public static String getTokenFalse() {
+        return properties.getProperty("tokenFalse");
+    }
+    public static String getTestmoAccount() {
+        return properties.getProperty("account");
+    }
+    public static String getTestmoLogin() {
+        return properties.getProperty("login");
+    }
+    public static String getTestmoPassword() {
+        return properties.getProperty("password");
+    }
 }
+>>>>>>> origin/develop
