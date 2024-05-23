@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "8dd351df-647e-465c-bbf1-ac28c5727131",
+		"name": "Testmo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3827029",
+		"_collection_link": "https://www.postman.com/svyatoslavqa/workspace/sviataslau-prylutski/collection/3827029-8dd351df-647e-465c-bbf1-ac28c5727131?action=share&source=collection_link&creator=3827029"
+	},
+	"item": [
+		{
+			"name": "GET own project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{own_base_url}}/api/v1/projects/{{own_project_id}}",
+					"host": [
+						"{{own_base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"projects",
+						"{{own_project_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET milestones of own project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{own_base_url}}/api/v1/projects/{{own_project_id}}/milestones",
+					"host": [
+						"{{own_base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"projects",
+						"{{own_project_id}}",
+						"milestones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET users of own project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Encoding",
+						"value": "gzip",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache, private",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"11133333\",\r\n    \"note\": \"\",\r\n    \"parent_id\": null,\r\n    \"type_id\": 1,\r\n    \"automation_tags\": [],\r\n    \"due_date\": \"\",\r\n    \"docs\": null,\r\n    \"issues\": [],\r\n    \"start_date\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{own_base_url}}/api/v1/projects/{{own_project_id}}/users",
+					"host": [
+						"{{own_base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"projects",
+						"{{own_project_id}}",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET own project runs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{own_base_url}}/api/v1/projects/{{own_project_id}}/runs",
+					"host": [
+						"{{own_base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"projects",
+						"{{own_project_id}}",
+						"runs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET not own project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{other_base_url}}/api/v1/projects/{{other_project_id}}",
+					"host": [
+						"{{other_base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"projects",
+						"{{other_project_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET milestones of not own project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{other_base_url}}/api/v1/projects/{{other_project_id}}/milestones",
+					"host": [
+						"{{other_base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"projects",
+						"{{other_project_id}}",
+						"milestones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET users of not own project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Encoding",
+						"value": "gzip",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache, private",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"11133333\",\r\n    \"note\": \"\",\r\n    \"parent_id\": null,\r\n    \"type_id\": 1,\r\n    \"automation_tags\": [],\r\n    \"due_date\": \"\",\r\n    \"docs\": null,\r\n    \"issues\": [],\r\n    \"start_date\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{other_base_url}}/api/v1/projects/{{other_project_id}}/users",
+					"host": [
+						"{{other_base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"projects",
+						"{{other_project_id}}",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET not own project runs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{other_base_url}}/api/v1/projects/{{other_project_id}}/runs",
+					"host": [
+						"{{other_base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"projects",
+						"{{other_project_id}}",
+						"runs"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "testmo_api_eyJpdiI6InNIY0U1MHNJR1dNWTYyMVk5d0s3Z2c9PSIsInZhbHVlIjoibGpzaExPaEhiVFZxR29vVnR5dkxCQ2krZHlzNkZjMlEzWk03OG1VNFJkcz0iLCJtYWMiOiI5OGM4MWQ5ZmY0NmU1MDkzYWY2ZTU0MzYwOTg5MjVjM2Q2ZWZhMjc1ZjE5OTQ1ZWVkNzE5Y2ZiYWNjYzIzZjA5IiwidGFnIjoiIn0=",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": ""
+		},
+		{
+			"key": "milestone_id",
+			"value": ""
+		}
+	]
+}
