@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 
 public class createAndCancelRun extends BaseApiTest {
 
-    @Test(dataProvider = "dataForCheckoutForm", dataProviderClass = StaticProvider.class)
+    @Test(dataProvider = "projectNumber", dataProviderClass = StaticProvider.class)
     @Description("Creates a new automation run in a target project")
     @Severity(SeverityLevel.CRITICAL)
     public void CreateNewRunTest(int projectID) {
@@ -30,7 +30,7 @@ public class createAndCancelRun extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_CREATED);
     }
-    @Test(dataProvider = "dataForCheckoutForm", dataProviderClass = StaticProvider.class)
+    @Test(dataProvider = "projectNumber", dataProviderClass = StaticProvider.class)
     @Description("Checking whether all runs are completed and completing them if not")
     @Severity(SeverityLevel.CRITICAL)
     public void checkAllRunsAndComplete(int projectID) {

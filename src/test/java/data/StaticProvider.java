@@ -4,8 +4,8 @@ import org.testng.annotations.DataProvider;
 
 public class StaticProvider {
 
-    @DataProvider (name = "dataForCheckoutForm")
-    public static Object[][] dataForCheckoutForm() {
+    @DataProvider (name = "projectNumber")
+    public static Object[][] projectNumber() {
         return new Object[][]{
                 {29},
                 {30},
