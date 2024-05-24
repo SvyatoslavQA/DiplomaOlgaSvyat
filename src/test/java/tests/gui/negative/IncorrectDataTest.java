@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class IncorrectDataTest extends BaseUITest {
 
-    @Test(description = "Использование некорректных данных логина во время авторизации", groups = "negative")
+    @Test(description = "Incorrect data during login test", groups = "negative")
     public void incorrectDataTest() {
         UserForUITest mUser = DataHelper.getFirsCorrectUser();
         mStartStep.loginButtonClick().isPageOpened();

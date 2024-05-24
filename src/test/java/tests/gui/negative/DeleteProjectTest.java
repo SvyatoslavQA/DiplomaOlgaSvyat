@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class DeleteProjectTest extends BaseUITest {
     private final static String pagePath = "admin/projects";
 
-    @Test(description = "Тест на удаление сущности проекта воспроизводящий дефект - после удаления не обновляется таблица", groups = "negative")
+    @Test(description = "delete project with no page refresh test", groups = "negative")
     public void deleteProjectTest() {
         defaultUserLogin();
         open(WebDriverRunner.getWebDriver().getCurrentUrl() + pagePath);

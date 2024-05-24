@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class CreateProjectTest extends BaseUITest {
 
-    @Test(description = "Тест на создание сущности проекта", groups = "positive")
+    @Test(description = "Project creation test", groups = "positive")
     public void createProjectTest() {
         defaultUserLogin();
         mProjectsListStep.openAddProjectDialogWindow();

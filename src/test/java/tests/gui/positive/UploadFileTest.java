@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class UploadFileTest extends BaseUITest {
 
 
-    @Test(description = "Тест на загрузку файла изображения во время создания проекта",
+    @Test(description = "Upload file during project creation test",
             groups = "positive",
             dataProvider = "Data for upload image",
             dataProviderClass = DataProviderForUploadImage.class)

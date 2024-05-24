@@ -4,12 +4,13 @@ import baseEntities.BaseUITest;
 import data.BoundaryValues;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import static com.codeborne.selenide.Selenide.open;
+
+
 
 public class IncorrectLengthFieldTest extends BaseUITest {
 
-    @Test(description = "Тест на ввод данных превышающих допустимые", groups = "negative")
+    @Test(description = "Incorrect length of project name test", groups = "negative")
     public void incorrectLengthFieldTest() {
         defaultUserLogin();
         mProjectsListStep.openAddProjectDialogWindow();

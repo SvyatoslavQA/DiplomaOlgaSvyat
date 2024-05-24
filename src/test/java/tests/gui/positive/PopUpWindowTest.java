@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class PopUpWindowTest extends BaseUITest {
 
-    @Test(description = "Тест на проверку всплывающего сообщения создания проекта", groups = "positive")
+    @Test(description = "Popup window test", groups = "positive")
     public void popUpTest() {
         defaultUserLogin();
         mProjectsListStep.openAddProjectDialogWindow();

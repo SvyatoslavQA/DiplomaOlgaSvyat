@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class DeleteWorkflowTest extends BaseUITest {
     private final static String pagePath = "admin/workflows";
 
-    @Test(description = "Тест на удаление сущности", groups = "positive")
+    @Test(description = "delete workflow test", groups = "positive")
     public void deleteWorkflowTest() {
         defaultUserLogin();
         open(WebDriverRunner.getWebDriver().getCurrentUrl() + pagePath);

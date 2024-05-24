@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class BoundaryProjectTest extends BaseUITest {
 
-    @Test(description = "Тест на граничные значения", groups = "positive")
+    @Test(description = "Boundary value test", groups = "positive")
     public void boundaryProjectTest() {
         defaultUserLogin();
         mProjectsListStep.openAddProjectDialogWindow();
