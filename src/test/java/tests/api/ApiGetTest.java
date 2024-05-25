@@ -12,8 +12,8 @@ import utils.Endpoints;
 import static io.restassured.RestAssured.given;
 
 
-public class apiGetTest extends BaseApiTest {
-    @Test
+public class ApiGetTest extends BaseApiTest {
+    @Test(description = "Get current user info")
     @Description("Get current user info")
     @Severity(SeverityLevel.MINOR)
     public void getUserTest() {
@@ -25,7 +25,7 @@ public class apiGetTest extends BaseApiTest {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    @Test
+    @Test(description = "Get list all users")
     @Description("Get list all users")
     @Severity(SeverityLevel.NORMAL)
     public void getAllUsersTest() {
@@ -51,7 +51,7 @@ public class apiGetTest extends BaseApiTest {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    @Test
+    @Test(description = "Get info about special user from list" )
     @Description("Get info about special user from list")
     @Severity(SeverityLevel.CRITICAL)
     public void getAllUsersAsArray() {
@@ -77,6 +77,20 @@ public class apiGetTest extends BaseApiTest {
         User[] actualUsersG = response.getBody().jsonPath().getObject("result", User[].class); // GSon
 
         Assert.assertTrue(actualUsersG[1].equals(expectedUser));
+    }
+
+    @Test(description = "Get all projects runs")
+    @Description("Get all projects runs")
+    @Severity(SeverityLevel.MINOR)
+    public void getAllProjectRunsTest() {
+                int projectID = 29;
+
+        given()
+                .when()
+                .pathParam("projectID", projectID)
+                .get(Endpoints.CREATE_NEW_RUN)
+                .then().log().body()
+                .statusCode(HttpStatus.SC_OK);
     }
 }
 
