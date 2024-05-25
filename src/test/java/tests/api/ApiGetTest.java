@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.given;
 
 
 public class ApiGetTest extends BaseApiTest {
-    @Test
+    @Test(description = "Get current user info")
     @Description("Get current user info")
     @Severity(SeverityLevel.MINOR)
     public void getUserTest() {
@@ -25,7 +25,7 @@ public class ApiGetTest extends BaseApiTest {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    @Test
+    @Test(description = "Get list all users")
     @Description("Get list all users")
     @Severity(SeverityLevel.NORMAL)
     public void getAllUsersTest() {
@@ -51,7 +51,7 @@ public class ApiGetTest extends BaseApiTest {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    @Test
+    @Test(description = "Get info about special user from list" )
     @Description("Get info about special user from list")
     @Severity(SeverityLevel.CRITICAL)
     public void getAllUsersAsArray() {
