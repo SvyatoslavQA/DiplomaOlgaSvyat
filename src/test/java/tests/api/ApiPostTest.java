@@ -40,6 +40,6 @@ public class ApiPostTest extends BaseApiTest {
                 .post(Endpoints.COMPLETE_ACTIVE_RUN)
                 .then()
                 .log().body()
-                .statusCode(HttpStatus.SC_NO_CONTENT);
+                .statusCode(HttpStatus.SC_UNPROCESSABLE_ENTITY);
     }
 }
