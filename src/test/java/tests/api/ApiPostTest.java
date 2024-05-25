@@ -31,7 +31,6 @@ public class ApiPostTest extends BaseApiTest {
     @Description("Complete active automation run")
     @Severity(SeverityLevel.CRITICAL)
     public void completeRunUsingFileTest() {
-
         int runID = 25;
 
         given()

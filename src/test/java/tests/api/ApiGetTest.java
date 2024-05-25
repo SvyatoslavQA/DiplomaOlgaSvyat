@@ -78,6 +78,20 @@ public class ApiGetTest extends BaseApiTest {
 
         Assert.assertTrue(actualUsersG[1].equals(expectedUser));
     }
+
+    @Test(description = "Get all projects runs")
+    @Description("Get all projects runs")
+    @Severity(SeverityLevel.MINOR)
+    public void getAllProjectRunsTest() {
+                int projectID = 29;
+
+        given()
+                .when()
+                .pathParam("projectID", projectID)
+                .get(Endpoints.CREATE_NEW_RUN)
+                .then().log().body()
+                .statusCode(HttpStatus.SC_OK);
+    }
 }
 
 
