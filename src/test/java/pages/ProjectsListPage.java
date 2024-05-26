@@ -19,11 +19,9 @@ public class ProjectsListPage extends BasePage {
     private final By uploadImageWindowLocator = By.xpath("//*[@class='admin-projects-dialog-avatar__action']");
     private final By projectImageLocator = By.xpath("//*[@class='admin-projects-dialog-avatar__avatar']/descendant::img");
     private final By fileUploadLocator = By.xpath("//input[@type='file']");
-
     private final By projectNameLocator = By.xpath("//input[@placeholder='Project name']");
     private final By projectSummaryLocator = By.xpath("//*[@data-target='note behavior--maxlength-counter.control']");
     private final By createProjectButtonLocator = By.xpath("//*[@class='ui button primary']");
-
     private final By createProjectDialogWindowLocator = By.xpath("//*[@class='dialog']");
     private final By createProjectDialogWindowTitleLocator = By.xpath("//*[@class='dialog__header__content']");
     private final By createProjectPopUpLocator = By.xpath("//*[@class='inline-tip help']");
@@ -100,7 +98,6 @@ public class ProjectsListPage extends BasePage {
         return geCreateProjectPopUpLocator().getAttribute("data-content");
     }
 
-    //загрузка выбранного изорбражения
     public void uploadImage(String pathToFile) {
         getUploadImageWindowLocator().click();
         getFileUploadLocator().sendKeys(pathToFile);
