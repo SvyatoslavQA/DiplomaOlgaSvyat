@@ -11,6 +11,7 @@
         <testng.version>7.7.1</testng.version>
         <selenium-java.version>4.11.0</selenium-java.version>
         <webdrivermanager.version>5.4.1</webdrivermanager.version>
+        <allure-testng.version>2.23.0</allure-testng.version>
         <testng.xml.path>src/test/resources/smoke.xml</testng.xml.path>
     </properties>
     <dependencies>
@@ -22,7 +23,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.28</version>
+            <version>1.18.30</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -108,7 +109,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>1.18.28</version>
+                            <version>1.18.30</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>

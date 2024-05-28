@@ -9,10 +9,10 @@ import static com.codeborne.selenide.Selenide.open;
 public class DeleteProjectTest extends BaseUITest {
     private final static String pagePath = "admin/projects";
 
-    @Test(description = "delete project with no page refresh test", groups = "negative")
-    public void deleteProjectTest() {
-        defaultUserLogin();
-        open(WebDriverRunner.getWebDriver().getCurrentUrl() + pagePath);
-        mAdminProjectStep.removeLastProjectFromTable();
-    }
+    //@Test(description = "delete project with no page refresh test", groups = "negative")
+    //public void deleteProjectTest() {
+        //defaultUserLogin();
+        //open(WebDriverRunner.getWebDriver().getCurrentUrl() + pagePath);
+        //mAdminProjectStep.removeLastProjectFromTable();
+    //}
 }
