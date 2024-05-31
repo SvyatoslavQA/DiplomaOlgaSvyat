@@ -23,7 +23,7 @@ public class ApiPostTest extends BaseApiTest {
                 .pathParam("projectID", projectID)
                 .post(Endpoints.CREATE_NEW_RUN)
                 .then()
-                .log().body()
+                .log().ifError()
                 .statusCode(HttpStatus.SC_CREATED);
     }
 
@@ -39,7 +39,7 @@ public class ApiPostTest extends BaseApiTest {
                 .pathParam("runID", runID)
                 .post(Endpoints.COMPLETE_ACTIVE_RUN)
                 .then()
-                .log().body()
+                .log().ifError()
                 .statusCode(HttpStatus.SC_UNPROCESSABLE_ENTITY);
     }
 }

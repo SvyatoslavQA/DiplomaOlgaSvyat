@@ -9,12 +9,12 @@ import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Endpoints;
+
 import static io.restassured.RestAssured.given;
 
 
 public class ApiGetTest extends BaseApiTest {
     @Test(description = "Get current user info")
-    @Description("Get current user info")
     @Severity(SeverityLevel.MINOR)
     public void getUserTest() {
 
@@ -26,7 +26,6 @@ public class ApiGetTest extends BaseApiTest {
     }
 
     @Test(description = "Get list all users")
-    @Description("Get list all users")
     @Severity(SeverityLevel.NORMAL)
     public void getAllUsersTest() {
 
@@ -37,8 +36,7 @@ public class ApiGetTest extends BaseApiTest {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    @Test
-    @Description("Get info about user by user id")
+    @Test(description = "Get info about user by user id")
     @Severity(SeverityLevel.NORMAL)
     public void getSecondUserTest() {
         int userID = 2;
@@ -51,8 +49,7 @@ public class ApiGetTest extends BaseApiTest {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    @Test(description = "Get info about special user from list" )
-    @Description("Get info about special user from list")
+    @Test(description = "Get info about special user from list")
     @Severity(SeverityLevel.CRITICAL)
     public void getAllUsersAsArray() {
         Gson gson = new Gson();
@@ -80,10 +77,9 @@ public class ApiGetTest extends BaseApiTest {
     }
 
     @Test(description = "Get all projects runs")
-    @Description("Get all projects runs")
     @Severity(SeverityLevel.MINOR)
     public void getAllProjectRunsTest() {
-                int projectID = 29;
+        int projectID = 29;
 
         given()
                 .when()
