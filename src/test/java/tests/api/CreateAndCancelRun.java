@@ -26,7 +26,7 @@ public class CreateAndCancelRun extends BaseApiTest {
                 .pathParam("projectID", projectID)
                 .post(Endpoints.CREATE_NEW_RUN)
                 .then()
-                .log().body()
+                .log().ifError()
                 .statusCode(HttpStatus.SC_CREATED);
     }
 
@@ -40,7 +40,7 @@ public class CreateAndCancelRun extends BaseApiTest {
                 .pathParam("projectID", projectID)
                 .get(Endpoints.GET_ALL_RUNS)
                 .then()
-                .log().body()
+                .log().ifError()
                 .statusCode(HttpStatus.SC_OK)
                 .extract().response();
 
@@ -54,7 +54,7 @@ public class CreateAndCancelRun extends BaseApiTest {
                         .pathParam("runID", run.getId())
                         .post(Endpoints.COMPLETE_ACTIVE_RUN)
                         .then()
-                        .log().body()
+                        .log().ifError()
                         .statusCode(HttpStatus.SC_NO_CONTENT);
             }
         }
@@ -63,7 +63,7 @@ public class CreateAndCancelRun extends BaseApiTest {
                 .pathParam("projectID", projectID)
                 .get(Endpoints.GET_ALL_RUNS)
                 .then()
-                .log().body()
+                .log().ifError()
                 .statusCode(HttpStatus.SC_OK)
                 .extract().response();
 

@@ -21,7 +21,8 @@ public class ApiGetTest extends BaseApiTest {
         given()
                 .when()
                 .get(Endpoints.GET_CURRENT_USER)
-                .then().log().body()
+                .then()
+                .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 
@@ -32,7 +33,8 @@ public class ApiGetTest extends BaseApiTest {
         given()
                 .when()
                 .get(Endpoints.GET_ALL_USERS)
-                .then().log().body()
+                .then()
+                .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 
@@ -45,13 +47,14 @@ public class ApiGetTest extends BaseApiTest {
                 .when()
                 .pathParam("userID", userID)
                 .get(Endpoints.GET_USER_BY_ID)
-                .then().log().body()
+                .then()
+                .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 
     @Test(description = "Get info about special user from list")
     @Severity(SeverityLevel.CRITICAL)
-    public void getAllUsersAsArray() {
+    public void getSpecialUserFromList() {
         Gson gson = new Gson();
 
         User expectedUser = User.builder()
@@ -67,7 +70,7 @@ public class ApiGetTest extends BaseApiTest {
                 .when()
                 .get(Endpoints.GET_ALL_USERS)
                 .then()
-                .log().body()
+                .log().ifError()
                 .statusCode(HttpStatus.SC_OK)
                 .extract().response();
 
@@ -85,7 +88,8 @@ public class ApiGetTest extends BaseApiTest {
                 .when()
                 .pathParam("projectID", projectID)
                 .get(Endpoints.CREATE_NEW_RUN)
-                .then().log().body()
+                .then()
+                .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 }
