@@ -9,36 +9,36 @@ import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Endpoints;
+
 import static io.restassured.RestAssured.given;
 
 
 public class ApiGetTest extends BaseApiTest {
     @Test(description = "Get current user info")
-    @Description("Get current user info")
     @Severity(SeverityLevel.MINOR)
     public void getUserTest() {
 
         given()
                 .when()
                 .get(Endpoints.GET_CURRENT_USER)
-                .then().log().body()
+                .then()
+                .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 
     @Test(description = "Get list all users")
-    @Description("Get list all users")
     @Severity(SeverityLevel.NORMAL)
     public void getAllUsersTest() {
 
         given()
                 .when()
                 .get(Endpoints.GET_ALL_USERS)
-                .then().log().body()
+                .then()
+                .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    @Test
-    @Description("Get info about user by user id")
+    @Test(description = "Get info about user by user id")
     @Severity(SeverityLevel.NORMAL)
     public void getSecondUserTest() {
         int userID = 2;
@@ -47,14 +47,14 @@ public class ApiGetTest extends BaseApiTest {
                 .when()
                 .pathParam("userID", userID)
                 .get(Endpoints.GET_USER_BY_ID)
-                .then().log().body()
+                .then()
+                .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    @Test(description = "Get info about special user from list" )
-    @Description("Get info about special user from list")
+    @Test(description = "Get info about special user from list")
     @Severity(SeverityLevel.CRITICAL)
-    public void getAllUsersAsArray() {
+    public void getSpecialUserFromList() {
         Gson gson = new Gson();
 
         User expectedUser = User.builder()
@@ -70,7 +70,7 @@ public class ApiGetTest extends BaseApiTest {
                 .when()
                 .get(Endpoints.GET_ALL_USERS)
                 .then()
-                .log().body()
+                .log().ifError()
                 .statusCode(HttpStatus.SC_OK)
                 .extract().response();
 
@@ -80,16 +80,16 @@ public class ApiGetTest extends BaseApiTest {
     }
 
     @Test(description = "Get all projects runs")
-    @Description("Get all projects runs")
     @Severity(SeverityLevel.MINOR)
     public void getAllProjectRunsTest() {
-                int projectID = 29;
+        int projectID = 29;
 
         given()
                 .when()
                 .pathParam("projectID", projectID)
                 .get(Endpoints.CREATE_NEW_RUN)
-                .then().log().body()
+                .then()
+                .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
 }

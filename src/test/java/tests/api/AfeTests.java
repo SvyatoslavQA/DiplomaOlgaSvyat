@@ -22,7 +22,8 @@ public class AfeTests extends BaseApiTest {
                 .when()
                 .pathParam("projectID", projectID)
                 .get(Endpoints.CREATE_NEW_RUN)
-                .then().log().body()
+                .then()
+                .log().ifError()
                 .statusCode(HttpStatus.SC_NOT_FOUND);
     }
 
@@ -38,7 +39,7 @@ public class AfeTests extends BaseApiTest {
                 .pathParam("runID", runID)
                 .post(Endpoints.COMPLETE_ACTIVE_RUN)
                 .then()
-                .log().body()
+                .log().ifError()
                 .statusCode(HttpStatus.SC_UNPROCESSABLE_ENTITY);
     }
 }

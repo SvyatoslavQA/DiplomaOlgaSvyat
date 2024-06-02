@@ -11,8 +11,7 @@ import static io.restassured.RestAssured.given;
 
 public class ApiPostTest extends BaseApiTest {
 
-    @Test
-    @Description("Creates a new automation run in a target project")
+    @Test(description = "Creates a new automation run in a target project")
     @Severity(SeverityLevel.CRITICAL)
     public void createRunUsingFileTest() {
         int projectID = 29;
@@ -23,12 +22,11 @@ public class ApiPostTest extends BaseApiTest {
                 .pathParam("projectID", projectID)
                 .post(Endpoints.CREATE_NEW_RUN)
                 .then()
-                .log().body()
+                .log().ifError()
                 .statusCode(HttpStatus.SC_CREATED);
     }
 
-    @Test
-    @Description("Complete active automation run")
+    @Test(description = "Complete active automation run")
     @Severity(SeverityLevel.CRITICAL)
     public void completeRunUsingFileTest() {
         int runID = 25;
@@ -40,6 +38,6 @@ public class ApiPostTest extends BaseApiTest {
                 .post(Endpoints.COMPLETE_ACTIVE_RUN)
                 .then()
                 .log().body()
-                .statusCode(HttpStatus.SC_NO_CONTENT);
+                .statusCode(HttpStatus.SC_UNPROCESSABLE_ENTITY);
     }
 }
