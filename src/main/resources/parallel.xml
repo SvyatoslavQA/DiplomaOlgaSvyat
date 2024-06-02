@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main Suite" parallel="methods" thread-count="12">
+    <test name="positive">
+        <classes>
+            <class name="tests.gui.positive.UploadFileTest"/>
+            <class name="tests.gui.positive.CreateProjectTest"/>
+            <class name="tests.gui.positive.DialogWindowTest"/>
+            <class name="tests.gui.positive.PopUpWindowTest"/>
+            <class name="tests.gui.positive.BoundaryProjectTest"/>
+            <class name="tests.gui.positive.DeleteWorkflowTest"/>
+        </classes>
+    </test>
+    <test name="negative">
+        <classes>
+            <class name="tests.gui.negative.DeleteProjectTest"/>
+            <class name="tests.gui.negative.IncorrectDataTest"/>
+            <class name="tests.gui.negative.IncorrectLengthFieldTest"/>
+        </classes>
+    </test>
+</suite>
