@@ -1,7 +1,6 @@
 package tests.gui.positive;
 
 import baseEntities.BaseUITest;
-import helper.DataHelper;
 import org.testng.annotations.Test;
 
 public class CreateProjectTest extends BaseUITest {

@@ -1,7 +1,6 @@
 package tests.gui.negative;
 
 import baseEntities.BaseUITest;
-import helper.DataHelper;
 import models.UserForUITest;
 import org.testng.Assert;
 import org.testng.annotations.Test;

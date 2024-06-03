@@ -3,7 +3,6 @@ package baseEntities;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import configuration.ReadProperties;
-import helper.DataHelper;
 import io.qameta.allure.selenide.AllureSelenide;
 import models.UserForUITest;
 import org.testng.ITestResult;
