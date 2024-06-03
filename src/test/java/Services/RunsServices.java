@@ -25,7 +25,7 @@ public class RunsServices implements IRunsServices {
                 .statusCode(HttpStatus.SC_NO_CONTENT)
                 .extract()
                 .as(Run.class);
-    };
+    }
 
     @Override
     public Run getAllProjectRuns(int projectID) {
@@ -55,7 +55,7 @@ public class RunsServices implements IRunsServices {
                 .extract()
                 .response()
                 .as(Run.class);
-    };
+    }
 
     @Override
     public Run createRunUsingFileNeg(int projectID) {
