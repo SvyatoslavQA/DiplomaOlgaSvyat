@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.util.Arrays;
 
-public class ApiGetTest extends BaseApiTest {
+public class ApiSimpleTest extends BaseApiTest {
     User expectedUser;
 
     @BeforeClass
@@ -68,7 +68,7 @@ public class ApiGetTest extends BaseApiTest {
 
     @Test(description = "Complete already completed run")
     @Severity(SeverityLevel.CRITICAL)
-    public void completeCompletedRunTest() {
+    public void completeRunUsingFileNeg() {
         int runID = 25;
         runsServices.completeRunUsingFile(runID);
     }

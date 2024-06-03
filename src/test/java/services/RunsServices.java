@@ -1,6 +1,8 @@
 package services;
 
 import configuration.ReadProperties;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import models.Run;
 import org.apache.hc.core5.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
@@ -13,8 +15,8 @@ public class RunsServices implements IRunsServices {
     protected Logger logger = LogManager.getLogger(this);
 
     @Override
-    public Run completeRunUsingFile(int runID) {
-        logger.info("Post complete active automation run");
+    public Run completeRunUsingFileNeg(int runID) {
+        logger.info("Post complete already automation run");
         return given()
                 .body(ReadProperties.class.getClassLoader().getResourceAsStream("CompleteActiveRun.json"))
                 .when()
@@ -22,9 +24,22 @@ public class RunsServices implements IRunsServices {
                 .post(Endpoints.COMPLETE_ACTIVE_RUN)
                 .then()
                 .log().body()
-                .statusCode(HttpStatus.SC_NO_CONTENT)
+                .statusCode(HttpStatus.SC_UNPROCESSABLE_ENTITY)
                 .extract()
                 .as(Run.class);
+    }
+
+    @Override
+    public ValidatableResponse completeRunUsingFile(int runID) {
+        logger.info("Post complete active automation run");
+        return given()
+                .body(ReadProperties.class.getClassLoader().getResourceAsStream("CompleteActiveRun.json"))
+                .when()
+                .pathParam("runID", runID)
+                .post(Endpoints.COMPLETE_ACTIVE_RUN)
+                .then()
+                .log().ifError()
+                .statusCode(HttpStatus.SC_NO_CONTENT);
     }
 
     @Override
@@ -70,5 +85,17 @@ public class RunsServices implements IRunsServices {
                 .extract()
                 .response()
                 .as(Run.class);
+    }
+
+    public Response getAllRuns(int projectID) {
+        logger.info("Get all active runs");
+        return given()
+                .pathParam("projectID", projectID)
+                .get(Endpoints.GET_ALL_RUNS)
+                .then()
+                .log().ifError()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .response();
     }
 }

@@ -4,15 +4,10 @@ import data.StaticProvider;
 import io.qameta.allure.*;
 import baseEntities.BaseApiTest;
 
-import configuration.ReadProperties;
 import io.restassured.response.Response;
 import models.Run;
-import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.Endpoints;
-
-import static io.restassured.RestAssured.given;
 
 public class CreateAndCancelRun extends BaseApiTest {
 
@@ -26,37 +21,16 @@ public class CreateAndCancelRun extends BaseApiTest {
     @Severity(SeverityLevel.CRITICAL)
     public void checkAllRunsAndComplete(int projectID) {
 
-        Response response = given()
-                .pathParam("projectID", projectID)
-                .get(Endpoints.GET_ALL_RUNS)
-                .then()
-                .log().ifError()
-                .statusCode(HttpStatus.SC_OK)
-                .extract().response();
-
+        Response response = runsServices.getAllRuns(projectID);
         Run[] actualRunsG = response.getBody().jsonPath().getObject("result", Run[].class);
 
         for (Run run : actualRunsG) {
             if (!run.isCompleted()) {
-                given()
-                        .body(ReadProperties.class.getClassLoader().getResourceAsStream("CompleteActiveRun.json"))
-                        .when()
-                        .pathParam("runID", run.getId())
-                        .post(Endpoints.COMPLETE_ACTIVE_RUN)
-                        .then()
-                        .log().ifError()
-                        .statusCode(HttpStatus.SC_NO_CONTENT);
+                runsServices.completeRunUsingFile(run.getId());
             }
         }
 
-        Response updatedResponse = given()
-                .pathParam("projectID", projectID)
-                .get(Endpoints.GET_ALL_RUNS)
-                .then()
-                .log().ifError()
-                .statusCode(HttpStatus.SC_OK)
-                .extract().response();
-
+        Response updatedResponse = runsServices.getAllRuns(projectID);
         Run[] updatedRunsG = updatedResponse.getBody().jsonPath().getObject("result", Run[].class);
 
         for (Run run : updatedRunsG) {

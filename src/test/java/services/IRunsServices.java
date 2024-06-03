@@ -1,9 +1,11 @@
 package services;
 
+import io.restassured.response.ValidatableResponse;
 import models.Run;
 
 public interface IRunsServices {
-    Run completeRunUsingFile(int runID);
+    ValidatableResponse completeRunUsingFile(int runID);
+    Run completeRunUsingFileNeg(int runID);
 
     Run getAllProjectRuns(int projectID);
     Run createRunUsingFile(int projectID);
