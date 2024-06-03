@@ -2,62 +2,19 @@ package tests.api;
 
 import io.qameta.allure.*;
 import baseEntities.BaseApiTest;
-import com.google.gson.Gson;
 import io.restassured.response.Response;
 import models.User;
-import org.apache.http.HttpStatus;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import utils.Endpoints;
-
-import static io.restassured.RestAssured.given;
-
+import java.util.Arrays;
 
 public class ApiGetTest extends BaseApiTest {
-    @Test(description = "Get current user info")
-    @Severity(SeverityLevel.MINOR)
-    public void getUserTest() {
+    User expectedUser;
 
-        given()
-                .when()
-                .get(Endpoints.GET_CURRENT_USER)
-                .then()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK);
-    }
-
-    @Test(description = "Get list all users")
-    @Severity(SeverityLevel.NORMAL)
-    public void getAllUsersTest() {
-
-        given()
-                .when()
-                .get(Endpoints.GET_ALL_USERS)
-                .then()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK);
-    }
-
-    @Test(description = "Get info about user by user id")
-    @Severity(SeverityLevel.NORMAL)
-    public void getSecondUserTest() {
-        int userID = 2;
-
-        given()
-                .when()
-                .pathParam("userID", userID)
-                .get(Endpoints.GET_USER_BY_ID)
-                .then()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK);
-    }
-
-    @Test(description = "Get info about special user from list")
-    @Severity(SeverityLevel.CRITICAL)
-    public void getSpecialUserFromList() {
-        Gson gson = new Gson();
-
-        User expectedUser = User.builder()
+    @BeforeClass
+    public void setupTestData() {
+        expectedUser = User.builder()
                 .id(2)
                 .name("Volha")
                 .email("lela_lela@mail.ru")
@@ -65,32 +22,41 @@ public class ApiGetTest extends BaseApiTest {
                 .isApi(false)
                 .roleId(4)
                 .build();
+    }
 
-        Response response = given()
-                .when()
-                .get(Endpoints.GET_ALL_USERS)
-                .then()
-                .log().ifError()
-                .statusCode(HttpStatus.SC_OK)
-                .extract().response();
+    @Test(description = "Get current user info")
+    @Severity(SeverityLevel.MINOR)
+    public void getUserTest() {
+        usersServices.getUser();
+    }
 
-        User[] actualUsersG = response.getBody().jsonPath().getObject("result", User[].class); // GSon
+    @Test(description = "Get list all users")
+    @Severity(SeverityLevel.NORMAL)
+    public void getAllUsersTest() {
+        usersServices.getUser();
+    }
 
-        Assert.assertTrue(actualUsersG[1].equals(expectedUser));
+    @Test(description = "Get info about user by user id")
+    @Severity(SeverityLevel.NORMAL)
+    public void getSecondUserTest() {
+        int userID = 1;
+        usersServices.getUserByID(userID);
+    }
+
+    @Test(description = "Get info about special user from list")
+    @Severity(SeverityLevel.CRITICAL)
+    public void getSpecialUserFromList() {
+        Response response = usersServices.getUserListResponse();
+        User[] actualUsers = response.getBody().jsonPath().getObject("result", User[].class);
+
+        Assert.assertTrue(Arrays.asList(actualUsers).contains(expectedUser));
     }
 
     @Test(description = "Get all projects runs")
     @Severity(SeverityLevel.MINOR)
     public void getAllProjectRunsTest() {
         int projectID = 29;
-
-        given()
-                .when()
-                .pathParam("projectID", projectID)
-                .get(Endpoints.CREATE_NEW_RUN)
-                .then()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK);
+        runsServices.getAllProjectRuns(projectID);
     }
 }
 
