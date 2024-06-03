@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.util.Arrays;
 
-public class ApiSimpleTest extends BaseApiTest {
+public class ApiGetTest extends BaseApiTest {
     User expectedUser;
 
     @BeforeClass
