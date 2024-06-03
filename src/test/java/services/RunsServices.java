@@ -1,4 +1,4 @@
-package Services;
+package services;
 
 import configuration.ReadProperties;
 import models.Run;

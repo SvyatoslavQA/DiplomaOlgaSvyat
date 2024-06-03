@@ -1,4 +1,4 @@
-package Services;
+package services;
 
 import io.restassured.response.Response;
 import models.User;

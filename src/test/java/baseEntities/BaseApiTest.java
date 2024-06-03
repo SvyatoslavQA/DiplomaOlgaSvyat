@@ -1,7 +1,7 @@
 package baseEntities;
 
-import Services.RunsServices;
-import Services.UsersServices;
+import services.RunsServices;
+import services.UsersServices;
 import configuration.ReadProperties;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
