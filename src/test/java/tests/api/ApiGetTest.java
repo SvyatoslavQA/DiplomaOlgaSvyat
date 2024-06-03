@@ -83,7 +83,7 @@ public class ApiGetTest extends BaseApiTest {
     @Test(description = "Complete active automation run. Negative.")
     @Severity(SeverityLevel.CRITICAL)
     public void completeRunUsingFileTest() {
-        int runID = 72;
+        int runID = 88;
         runsServices.completeRunUsingFile(runID);
     }
 }
