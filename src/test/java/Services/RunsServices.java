@@ -22,7 +22,7 @@ public class RunsServices implements IRunsServices {
                 .post(Endpoints.COMPLETE_ACTIVE_RUN)
                 .then()
                 .log().body()
-                .statusCode(HttpStatus.SC_UNPROCESSABLE_ENTITY)
+                .statusCode(HttpStatus.SC_NO_CONTENT)
                 .extract()
                 .as(Run.class);
     };

@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.util.Arrays;
 
-public class ApiGetTest extends BaseApiTest {
+public class ApiSimpleTest extends BaseApiTest {
     User expectedUser;
 
     @BeforeClass
@@ -58,6 +58,35 @@ public class ApiGetTest extends BaseApiTest {
         int projectID = 29;
         runsServices.getAllProjectRuns(projectID);
     }
+
+    @Test(description = "Try creating a new rub in a project that doesn't exist")
+    @Severity(SeverityLevel.MINOR)
+    public void createRunNegativeTest() {
+        int projectID = 1;
+        runsServices.createRunUsingFileNeg(projectID);
+    }
+
+    @Test(description = "Complete already completed run")
+    @Severity(SeverityLevel.CRITICAL)
+    public void completeCompletedRunTest() {
+        int runID = 25;
+        runsServices.completeRunUsingFile(runID);
+    }
+
+    @Test(description = "Creates a new automation run in a target project")
+    @Severity(SeverityLevel.CRITICAL)
+    public void createRunUsingFileTest() {
+        int projectID = 29;
+        runsServices.createRunUsingFile(projectID);
+    }
+
+    @Test(description = "Complete active automation run. Negative.")
+    @Severity(SeverityLevel.CRITICAL)
+    public void completeRunUsingFileTest() {
+        int runID = 72;
+        runsServices.completeRunUsingFile(runID);
+    }
 }
+
 
 
