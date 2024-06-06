@@ -11,6 +11,12 @@
             <class name="tests.gui.positive.DeleteWorkflowTest"/>
         </classes>
     </test>
+    <test name="Smoke" parallel="classes" thread-count="2">
+        <classes>
+            <class name="tests.api.ApiSimpleTest"/>
+            <class name="tests.api.CreateAndCancelRun"/>
+        </classes>
+    </test>
     <test name="negative">
         <classes>
             <class name="tests.gui.negative.DeleteProjectTest"/>
